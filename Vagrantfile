@@ -14,10 +14,6 @@ Vagrant.configure("2") do |config|
     "
   end
 
-  config.vm.provision :shell do |shell|
-    shell.inline = "( puppet module list | grep willdurand-composer ) || ( puppet module install willdurand/composer );"
-  end
-
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = 'puppet/manifests'
     puppet.module_path = 'puppet/modules'
